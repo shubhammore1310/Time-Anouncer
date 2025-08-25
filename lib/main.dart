@@ -9,10 +9,10 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Time Announcer',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: const TimeAnnouncerScreen(),
@@ -77,7 +77,7 @@ class _TimeAnnouncerScreenState extends State<TimeAnnouncerScreen> {
     });
 
     _announceTime(); // Announce immediately once
-    _timer = Timer.periodic(Duration(seconds: frequency), (timer) {
+    _timer = Timer.periodic(Duration(minutes: frequency), (timer) {
       _announceTime();
     });
   }
